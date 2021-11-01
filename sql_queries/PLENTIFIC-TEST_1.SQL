@@ -1,6 +1,6 @@
 CREATE OR REPLACE TABLE `project_id.dataset.house_prices_CLEAN` as 
 
-SELECT trim(string_field_0,"{}") as HOUSE_ID,#REMOVED {} SIGNS
+SELECT trim(string_field_0,"{}") as TRANSACTION_ID,#REMOVED {} SIGNS
         int64_field_1 as PRICE,
         DATE(timestamp_field_2) as TRANSFER_DATE,# TOOK DATE FROM TIMESTAMP
         CASE WHEN string_field_3 ="" THEN (SELECT STRING_AGG(DISTINCT string_field_3 ORDER BY string_field_3 DESC LIMIT 1)   FROM `project_id.dataset.house_prices` AS A 
