@@ -1,0 +1,34 @@
+3. Imagine that you now have to create a series of Looker dashboards based on the sold
+houses price information that you have been working on.
+a. What Looker explores and Looker views would you create, and why?
+    Create 3 explores :
+       - 1 for raw table 
+       - 1 explore for each report (total of 2 reports)
+    Create 3 views based on the logic explained above.
+    Also, I will consider building more explores and dashboards depending of the diversity of business units and users accessing the information (related to question c)
+b. Would you create UDD or LookML dashboards, and why?
+    By default, I would create a User defined Dashboard because the all the information regarding the assignment will be displayed in a short time period, saving time and effort. However, if it is asked the dashboards to  require a higher level of customization and complexity, I would consider generating the LookML dashboard file. 
+c. Imagine that internally two departments want to see “Detached” houses with a
+different name in their dashboards. The Finance department wants to see that
+dimension named “Detached” in their Finance dashboards, but the Marketing
+department wants to use another term for that dimension in the Marketing
+dashboards, they want to use: “Independent” instead of “Detached”. You are not
+allowed to use Looker’s built-in localization feature, and you should not use Liquid
+code. How could you provide the same piece of information, but with two different
+names, in two different dashboards?
+    One possible solution could be generating another VIEW file that contains all the changes in the dimensions that are required, and then in the model file creating an additional explore based on the new VIEW file for marketing, so that finance and marketing department would have two different explores in which build different dashboards .
+
+d. You want to generate a list of all the users that have a certain value set for a user
+attribute that you have created. How do you do it?
+ There are two ways in which you could do it, depending on what is the final objective of the list of users.
+    - From the UI you can go to Admin --> Users --> Groups, find the group that has been created based on your user attribute, click on it and Looker will show all the users that are assigned to that particular user attribute.     
+    - Via API call: Using a get request to "looker-domain/api/user_attributes/{user_attribute_id}/group_values and then get all group values associated with that attribute, and get a list of all the users
+
+e. How can you dynamically modify the YAML code of a LookML dashboard depending
+on the user who is looking at it?
+-- No answer provided
+f. Looker is taking a long time to load, but not just dashboards, the Looker instance in
+general: creating schedules, the IDE development environment... Where would you
+look to try to troubleshoot the sluggishness of your Looker instance? What solutions
+could be applied?
+    Try changing the catching policy of the Looker instance, probably the catchimg policy is set to a very long period of time. Setting a catchimg policy of a shorter period could probably increment the overall performance of the instance
